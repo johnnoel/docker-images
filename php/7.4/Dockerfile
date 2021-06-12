@@ -1,4 +1,4 @@
 FROM circleci/php:7.4-cli
-RUN sudo apt-get update && sudo apt-get install libpq-dev libpng-dev libjpeg62-turbo-dev && sudo docker-php-ext-configure gd --with-jpeg && sudo docker-php-ext-install gd && sudo docker-php-ext-install pdo_pgsql
-RUN wget -O /tmp/doctl.tar.gz https://github.com/digitalocean/doctl/releases/download/v1.58.0/doctl-1.58.0-linux-amd64.tar.gz && tar xzf /tmp/doctl.tar.gz -C /tmp && sudo mv /tmp/doctl /usr/local/bin/doctl
-RUN wget -O /tmp/sentry-cli https://downloads.sentry-cdn.com/sentry-cli/1.63.2/sentry-cli-Linux-x86_64 && sudo mv /tmp/sentry-cli /usr/local/bin/sentry-cli && sudo chmod 0755 /usr/local/bin/sentry-cli
+RUN sudo apt-get update && sudo apt-get install libpq-dev libpng-dev libjpeg62-turbo-dev libmagickwand-dev && sudo docker-php-ext-configure gd --with-jpeg && sudo docker-php-ext-install gd && sudo docker-php-ext-install pdo_pgsql && sudo pecl install imagick && sudo docker-php-ext-enable imagick
+RUN wget -O /tmp/doctl.tar.gz https://github.com/digitalocean/doctl/releases/download/v1.61.0/doctl-1.61.0-linux-amd64.tar.gz && tar xzf /tmp/doctl.tar.gz -C /tmp && sudo mv /tmp/doctl /usr/local/bin/doctl
+RUN wget -O /tmp/sentry-cli https://downloads.sentry-cdn.com/sentry-cli/1.66.0/sentry-cli-Linux-x86_64 && sudo mv /tmp/sentry-cli /usr/local/bin/sentry-cli && sudo chmod 0755 /usr/local/bin/sentry-cli
